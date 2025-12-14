@@ -102,3 +102,12 @@ if texto_para_ia and st.button("Extrair Dados do Documento 🚀"):
 
         except Exception as e:
             st.error(f"Erro na IA: {e}")
+
+            # --- NOVO: LER O ARQUIVO E CRIAR BOTÃO ---
+            with open(arquivo_excel, "rb") as file:
+                st.download_button(
+                    label="📥 Baixar Planilha Excel",
+                    data=file,
+                    file_name="pedidos_extraidos.csv",
+                    mime="text/csv"
+                )
